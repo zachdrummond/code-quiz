@@ -1,5 +1,11 @@
 # code-quiz
 
+# Progress
+* Created files
+* Links to Bootstrap, CSS, JavaScript
+* HTML Front Page - Header, Paragraph, Button, High Scores, Timer
+* Assigned id Names and targeted them using JavaScript
+
 # Pseudocode
 1. Create HTML Layout using Bootstrap
 2. Add Link to CSS, JavaScript, and Bootstrap
