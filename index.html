@@ -20,11 +20,11 @@
   <body>
     
     <nav class="nav nav-pills m-1">
-        <a class="nav-link active" href="#">View High Scores</a>
+        <a id="highScores" class="nav-link active" href="#">View High Scores</a>
         <a class="nav-link active disabled ml-auto" href="#">Timer: <span id="timer">0</span></a>
     </nav>
 
-    <main class="container w-50 text-center font-weight-bold">
+    <main id="frontPage" class="container w-50 text-center font-weight-bold">
       <div class="row">
         <div class="col">
           <h1 class="m-4">Coding Quiz Challenge</h1>
@@ -33,10 +33,12 @@
             time limit. Keep in mind that incorrect answers will penalize your
             score time by 10 seconds!
           </p>
-          <button type="button" class="btn btn-primary">Start Quiz</button>
+          <button id = "startQuizButton" type="button" class="btn btn-primary">Start Quiz</button>
         </div>
       </div>
     </main>
+
+    <section id="section"></section>
     <script src="index.js"></script>
   </body>
 </html>
