@@ -5,6 +5,7 @@
 * Links to Bootstrap, CSS, JavaScript
 * HTML Front Page - Header, Paragraph, Button, High Scores, Timer
 * Assigned id Names and targeted them using JavaScript
+* Start Quiz Button - Front Page disappears
 
 # Pseudocode
 1. Create HTML Layout using Bootstrap
