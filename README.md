@@ -7,6 +7,8 @@
 * Assigned id Names and targeted them using JavaScript
 * Start Quiz Button - Front Page disappears
 * Added functionality to the timer
+* Added viewHighScores button
+* Added HTML sections
 
 # Pseudocode
 1. Create HTML Layout using Bootstrap
