@@ -9,6 +9,7 @@
 * Added functionality to the timer
 * Added viewHighScores button
 * Added HTML sections
+* Added array of objects of questions and answers
 
 # Pseudocode
 1. Create HTML Layout using Bootstrap

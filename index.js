@@ -1,11 +1,13 @@
 var nav = document.querySelector("nav");
 var homePage = document.getElementById("homePage");
+var quizPage = document.getElementById("quizPage");
 var highScorePage = document.getElementById("highScorePage");
+var quizCompletePage = document.getElementById("quizCompletePage");
 var viewHighScoresButton = document.getElementById("viewHighScoresButton");
 var quizTimer = document.getElementById("timer");
 var startQuizButton = document.getElementById("startQuizButton");
 
-var array = [
+var quizArray = [
   {
     question1: "Commonly used data types DO NOT include:",
     choice1: "1. strings",

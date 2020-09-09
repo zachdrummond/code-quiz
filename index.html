@@ -18,12 +18,19 @@
   </head>
 
   <body>
-    <nav id="nav" class="nav nav-pills m-1">
-      <a id="viewHighScoresButton" class="nav-link active" href="#">View High Scores</a>
-      <a class="nav-link disabled ml-auto" href="#">Timer: <span id="timer">0</span></a>
+    <!-- Nav Bar - View High Scores & Timer -->
+    <nav class="nav nav-pills m-1">
+      <a id="viewHighScoresButton" class="nav-link active" href="#"
+        >View High Scores</a
+      >
+      <a class="nav-link disabled ml-auto" href="#"
+        >Timer: <span id="timer">0</span></a
+      >
     </nav>
 
+    <!-- Main - Container for Everything -->
     <main class="container w-50 font-weight-bold">
+      <!-- Home Page Section -->
       <section id="homePage" class="text-center">
         <div class="row">
           <div class="col">
@@ -33,45 +40,104 @@
               time limit. Keep in mind that incorrect answers will penalize your
               score time by 10 seconds!
             </p>
-            <button id="startQuizButton" type="button" class="btn btn-primary">Start Quiz</button>
+            <button id="startQuizButton" type="button" class="btn btn-primary">
+              Start Quiz
+            </button>
           </div>
         </div>
       </section>
 
+      <!-- Quiz Page Section -->
       <section id="quizPage">
         <h1>Question #<span id="questionNumber">1</span></h1>
         <h2>Question :</h2>
         <div class="row">
-            <div class="col mb-2">
-                <button id="choice1" type="button" class="btn btn-primary btn-block">Choice #1</button>
-            </div>
+          <div class="col mb-2">
+            <button
+              id="choice1"
+              type="button"
+              class="btn btn-primary btn-block"
+            >
+              Choice #1
+            </button>
+          </div>
         </div>
         <div class="row">
-            <div class="col mb-2">
-                <button id="choice2" type="button" class="btn btn-primary btn-block">Choice #2</button>
-            </div>
+          <div class="col mb-2">
+            <button
+              id="choice2"
+              type="button"
+              class="btn btn-primary btn-block"
+            >
+              Choice #2
+            </button>
+          </div>
         </div>
         <div class="row">
-            <div class="col mb-2">
-                <button id="choice3" type="button" class="btn btn-primary btn-block">Choice #3</button>
-            </div>
+          <div class="col mb-2">
+            <button
+              id="choice3"
+              type="button"
+              class="btn btn-primary btn-block"
+            >
+              Choice #3
+            </button>
+          </div>
         </div>
         <div class="row">
-            <div class="col mb-2">
-                <button id="choice4" type="button" class="btn btn-primary btn-block">Choice #4</button>
-            </div>
+          <div class="col mb-2">
+            <button
+              id="choice4"
+              type="button"
+              class="btn btn-primary btn-block"
+            >
+              Choice #4
+            </button>
+          </div>
         </div>
         <div>
-            <hr>
-            <p class="font-italic font-weight-light">Correct or Wrong!</p>
+          <hr />
+          <p class="font-italic font-weight-light">Correct or Wrong!</p>
         </div>
       </section>
 
+      <!-- High Score Page Section -->
       <section id="highScorePage">
         <h1 class="mb-4">High Scores</h1>
         <p class="alert alert-primary" role="alert">Hello</p>
-        <button id="goHomeButton" type="button" class="btn btn-info btn-sm">Go Home</button>
-        <button id="goHomeButton" type="button" class="btn btn-info btn-sm">Clear High Scores</button>
+        <button id="goHomeButton" type="button" class="btn btn-info btn-sm">
+          Go Home
+        </button>
+        <button id="goHomeButton" type="button" class="btn btn-info btn-sm">
+          Clear High Scores
+        </button>
+      </section>
+
+      <!-- Quiz Complete Section -->
+      <section id="quizCompletePage">
+        <h1 class="mb-4">Quiz Complete!</h1>
+        <p>Your final score is <span id="finalScore">#</span></p>
+        <form class="form-inline">
+          <div class="form-group mb-2">
+            <input
+              type="text"
+              readonly
+              class="form-control-plaintext"
+              value="Enter Your Intials: "
+            />
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="userInitials" class="sr-only">userInitials</label>
+            <input
+              type="text"
+              class="form-control"
+              id="userInitials"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary mb-2">
+            Submit
+          </button>
+        </form>
       </section>
     </main>
 
