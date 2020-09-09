@@ -1,11 +1,15 @@
 var nav = document.querySelector("nav");
 var homePage = document.getElementById("homePage");
-var quizPage = document.getElementById("quizPage");
-var highScorePage = document.getElementById("highScorePage");
-var quizCompletePage = document.getElementById("quizCompletePage");
+var startQuizButton = document.getElementById("startQuizButton");
 var viewHighScoresButton = document.getElementById("viewHighScoresButton");
 var quizTimer = document.getElementById("timer");
-var startQuizButton = document.getElementById("startQuizButton");
+var quizPage = document.getElementById("quizPage");
+var quizCompletePage = document.getElementById("quizCompletePage");
+var highScorePage = document.getElementById("highScorePage");
+var goHomeButton = document.getElementById("goHomeButton");
+var clearHighScoresButton = document.getElementById("clearHighScoresButton");
+
+var pageArray = [homePage, quizPage, quizCompletePage, highScorePage];
 
 var quizArray = [
   {
@@ -48,18 +52,6 @@ var quizArray = [
   },
 ];
 
-startQuizButton.addEventListener("click", function () {
-  if (event.target.matches("button")) {
-    startTimer();
-    homePage.setAttribute("style", "display: none");
-  }
-});
-
-viewHighScoresButton.addEventListener("click", function () {
-  homePage.setAttribute("style", "display: none");
-  nav.setAttribute("style", "display: none");
-});
-
 function startTimer() {
   var counter = 75;
   quizTimer.textContent = counter;
@@ -72,3 +64,31 @@ function startTimer() {
     }
   }, 1000);
 }
+
+function setupScreen(page){
+  for(var i=0; i<pageArray.length; i++){
+    if(page === pageArray[i]){
+      page.setAttribute("style", "display: block");
+    } else{
+      pageArray[i].setAttribute("style", "display: none");
+    }
+  }
+}
+
+
+startQuizButton.addEventListener("click", function () {
+  setupScreen(quizPage);  
+  startTimer();
+});
+
+viewHighScoresButton.addEventListener("click", function () {
+  setupScreen(highScorePage);
+});
+
+goHomeButton.addEventListener("click", function(){
+  setupScreen(homePage);
+});
+
+clearHighScoresButton.addEventListener("click", function(){
+  
+});
