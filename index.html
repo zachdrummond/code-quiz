@@ -29,7 +29,7 @@
     </nav>
 
     <!-- Main - Container for Everything -->
-    <main class="container w-50 font-weight-bold">
+    <main class="container w-50 h-100 font-weight-bold">
       <!-- Home Page Section -->
       <section id="homePage" class="text-center">
         <div class="row">
@@ -50,11 +50,11 @@
       <!-- Quiz Page Section -->
       <section id="quizPage">
         <h1 class="mt-4 ">Question #<span id="questionNumber">1</span></h1>
-        <h2>Question :</h2>
+        <h2 id="quizQuestion">Question :</h2>
         <div class="row">
           <div class="col mb-2">
             <button
-              id="choice1"
+              id="quizButtonChoice1"
               type="button"
               class="btn btn-primary btn-block"
             >
@@ -65,7 +65,7 @@
         <div class="row">
           <div class="col mb-2">
             <button
-              id="choice2"
+              id="quizButtonChoice2"
               type="button"
               class="btn btn-primary btn-block"
             >
@@ -76,7 +76,7 @@
         <div class="row">
           <div class="col mb-2">
             <button
-              id="choice3"
+              id="quizButtonChoice3"
               type="button"
               class="btn btn-primary btn-block"
             >
@@ -87,7 +87,7 @@
         <div class="row">
           <div class="col mb-2">
             <button
-              id="choice4"
+              id="quizButtonChoice4"
               type="button"
               class="btn btn-primary btn-block"
             >
@@ -95,7 +95,7 @@
             </button>
           </div>
         </div>
-        <div id="rightOrWrong">
+        <div id="rightOrWrong" class="mt-5">
           <hr />
           <p class="font-italic font-weight-light">Correct or Wrong!</p>
         </div>
@@ -131,7 +131,7 @@
       <!-- High Score Page Section -->
       <section id="highScorePage">
         <h1 class="mt-5 mb-4">High Scores</h1>
-        <p class="alert alert-primary" role="alert">Hello</p>
+        <p id="totalScore" class="alert alert-primary" role="alert">Hello</p>
         <button id="goHomeButton" type="button" class="btn btn-info btn-sm">
           Go Home
         </button>

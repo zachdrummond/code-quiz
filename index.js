@@ -1,54 +1,74 @@
+// Home Page Variables
 var nav = document.querySelector("nav");
 var homePage = document.getElementById("homePage");
 var startQuizButton = document.getElementById("startQuizButton");
 var viewHighScoresButton = document.getElementById("viewHighScoresButton");
 var quizTimer = document.getElementById("timer");
+
+// Quiz Page Variables
 var quizPage = document.getElementById("quizPage");
+var questionNumber = document.getElementById("questionNumber");
+var quizQuestion = document.getElementById("quizQuestion");
+var quizButtonChoice1 = document.getElementById("quizButtonChoice1");
+var quizButtonChoice2 = document.getElementById("quizButtonChoice2");
+var quizButtonChoice3 = document.getElementById("quizButtonChoice3");
+var quizButtonChoice4 = document.getElementById("quizButtonChoice4");
+var rightOrWrong = document.getElementById("rightOrWrong");
+
+// Quiz Complete Page Variables
 var quizCompletePage = document.getElementById("quizCompletePage");
+
+// High Scores Page Variables
 var highScorePage = document.getElementById("highScorePage");
+var totalScore = document.getElementById("totalScore");
 var goHomeButton = document.getElementById("goHomeButton");
 var clearHighScoresButton = document.getElementById("clearHighScoresButton");
 
+// Array Variables
 var pageArray = [homePage, quizPage, quizCompletePage, highScorePage];
-
 var quizArray = [
   {
-    question1: "Commonly used data types DO NOT include:",
-    choice1: "1. strings",
-    choice2: "2. booleans",
-    correctAnswer: "3. alerts",
-    choice4: "4. numbers",
+    // Quiz Question #1
+    question: "Commonly used data types DO NOT include:",
+    choice1: ["1. strings", false],
+    choice2: ["2. booleans", false],
+    choice3: ["3. alerts", true], // Correct Answer
+    choice4: ["4. numbers", false]
   },
   {
-    question2:
+    // Quiz Question #2
+    question:
       "The condition in an if / else statement is enclosed within _____.",
-    choice1: "1. quotes",
-    choice2: "2. curly brackets",
-    correctAnswer: "3. parentheses",
-    choice4: "4. square brackets",
+    choice1: ["1. quotes", false],
+    choice2: ["2. curly brackets", false],
+    choice3: ["3. parentheses", true],// Correct Answer
+    choice4: ["4. square brackets", false]
   },
   {
-    question3: "Arrays in JavaScript can be used to store",
-    choice1: "1. numbers and strings",
-    choice2: "2. other arrays",
-    choice3: "3. booleans",
-    correctAnswer: "4. all of the above",
+    // Quiz Question #3
+    question: "Arrays in JavaScript can be used to store",
+    choice1: ["1. numbers and strings", false],
+    choice2: ["2. other arrays", false],
+    choice3: ["3. booleans", false],
+    choice4: ["4. all of the above", true]// Correct Answer
   },
   {
-    question4:
+    // Quiz Question #4
+    question:
       "String values must be enclosed within _____ when being assigned to variables.",
-    choice1: "1. commas",
-    choice2: "2. curly brackets",
-    correctAnswer: "3. quotes",
-    choice4: "4. parentheses",
+    choice1: ["1. commas", false],
+    choice2: ["2. curly brackets", false],
+    choice3: ["3. quotes", true],// Correct Answer
+    choice4: ["4. parentheses", false],
   },
   {
-    question5:
+    // Quiz Question #5
+    question:
       "A very useful tool used during development and debugging for printing content to the debugger is:",
-    choice1: "1. JavaScript",
-    choice2: "2. terminal / bash",
-    choice3: "3. for loops",
-    correctAnswer: "4. console.log",
+    choice1: ["1. JavaScript", false],
+    choice2: ["2. terminal / bash", false],
+    choice3: ["3. for loops", false],
+    choice4: ["4. console.log", true]// Correct Answer
   },
 ];
 
@@ -75,10 +95,36 @@ function setupScreen(page){
   }
 }
 
+function setupQuiz(number){
+  rightOrWrong.textContent = "";
+  questionNumber.textContent = number;
+  quizQuestion.textContent = quizArray[number-1].question;
+  quizButtonChoice1.textContent = quizArray[number-1].choice1[0];
+  quizButtonChoice2.textContent = quizArray[number-1].choice2[0];
+  quizButtonChoice3.textContent = quizArray[number-1].choice3[0];
+  quizButtonChoice4.textContent = quizArray[number-1].choice4[0];
+}
 
 startQuizButton.addEventListener("click", function () {
-  setupScreen(quizPage);  
+  setupQuiz(1);
+  setupScreen(quizPage);
   startTimer();
+});
+
+quizButtonChoice1.addEventListener("click", function(){
+  
+});
+
+quizButtonChoice2.addEventListener("click", function(){
+  
+});
+
+quizButtonChoice3.addEventListener("click", function(){
+  
+});
+
+quizButtonChoice4.addEventListener("click", function(){
+  
 });
 
 viewHighScoresButton.addEventListener("click", function () {
