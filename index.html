@@ -18,27 +18,38 @@
   </head>
 
   <body>
-    
-    <nav class="nav nav-pills m-1">
-        <a id="highScores" class="nav-link active" href="#">View High Scores</a>
-        <a class="nav-link active disabled ml-auto" href="#">Timer: <span id="timer">0</span></a>
+    <nav id="nav" class="nav nav-pills m-1">
+      <a id="viewHighScoresButton" class="nav-link active" href="#">View High Scores</a>
+      <a class="nav-link disabled ml-auto" href="#">Timer: <span id="timer">0</span></a>
     </nav>
 
-    <main id="frontPage" class="container w-50 text-center font-weight-bold">
-      <div class="row">
-        <div class="col">
-          <h1 class="m-4">Coding Quiz Challenge</h1>
-          <p>
-            Try to answer the following code-related questions within the same
-            time limit. Keep in mind that incorrect answers will penalize your
-            score time by 10 seconds!
-          </p>
-          <button id="startQuizButton" type="button" class="btn btn-primary">Start Quiz</button>
+    <main class="container w-50 font-weight-bold">
+      <section id="homePage" class="text-center">
+        <div class="row">
+          <div class="col">
+            <h1 class="m-4">Coding Quiz Challenge</h1>
+            <p>
+              Try to answer the following code-related questions within the same
+              time limit. Keep in mind that incorrect answers will penalize your
+              score time by 10 seconds!
+            </p>
+            <button id="startQuizButton" type="button" class="btn btn-primary">Start Quiz</button>
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section id="quizPage">
+        
+      </section>
+
+      <section id="highScorePage">
+        <h1 class="mb-4">High Scores</h1>
+        <p class="alert alert-primary" role="alert">Hello</p>
+        <button id="goHomeButton" type="button" class="btn btn-info btn-sm">Go Home</button>
+        <button id="goHomeButton" type="button" class="btn btn-info btn-sm">Clear High Scores</button>
+      </section>
     </main>
 
-    <section id="section" class="container"></section>
     <script src="index.js"></script>
   </body>
 </html>

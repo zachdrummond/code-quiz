@@ -1,14 +1,23 @@
-var frontPage = document.getElementById("frontPage");
-var section = document.getElementById("section");
-var highScores = document.getElementById("highScores");
+var nav = document.querySelector("nav");
+var homePage = document.getElementById("homePage");
+var highScorePage = document.getElementById("highScorePage");
+var viewHighScoresButton = document.getElementById("viewHighScoresButton");
 var quizTimer = document.getElementById("timer");
 var startQuizButton = document.getElementById("startQuizButton");
+
 
 startQuizButton.addEventListener("click", function(){
     if(event.target.matches("button")){
         startTimer();
-        frontPage.setAttribute("style", "display: none");
+        homePage.setAttribute("style", "display: none");
     }
+});
+
+viewHighScoresButton.addEventListener("click", function(){
+    homePage.setAttribute("style", "display: none");
+    nav.setAttribute("style", "display: none");
+
+    
 });
 
 function startTimer(){
