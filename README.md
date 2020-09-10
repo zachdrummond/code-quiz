@@ -10,7 +10,7 @@
 ## Description
 This is an app that creates a timed, multiple-choice quiz about coding. Students and Experts alike can test their knowledge on JavaScript fundamentals and share their high score with their peers.
 
-This app was designed using dynamically updated HTML and CSS powered by JavaScript and Boostrap.
+This app was designed using dynamically updated HTML and CSS powered by JavaScript and Bootstrap.
 
 ## Design Elements
 ### *JavaScript*
