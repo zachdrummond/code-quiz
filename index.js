@@ -11,10 +11,12 @@ var interval;
 var quizPage = document.getElementById("quizPage");
 var questionNumber = document.getElementById("questionNumber");
 var quizQuestion = document.getElementById("quizQuestion");
-var quizButtonChoice1 = document.getElementById("quizButtonChoice1");
-var quizButtonChoice2 = document.getElementById("quizButtonChoice2");
-var quizButtonChoice3 = document.getElementById("quizButtonChoice3");
-var quizButtonChoice4 = document.getElementById("quizButtonChoice4");
+var quizButtonChoicesArray = [
+  document.getElementById("quizButtonChoice1"),
+  document.getElementById("quizButtonChoice2"),
+  document.getElementById("quizButtonChoice3"),
+  document.getElementById("quizButtonChoice4"),
+];
 var rightOrWrong = document.getElementById("rightOrWrong");
 
 // Quiz Complete Page Variables
@@ -37,7 +39,7 @@ var quizArray = [
     choice1: ["1. strings", false],
     choice2: ["2. booleans", false],
     choice3: ["3. alerts", true], // Correct Answer
-    choice4: ["4. numbers", false]
+    choice4: ["4. numbers", false],
   },
   {
     // Quiz Question #2
@@ -45,8 +47,8 @@ var quizArray = [
       "The condition in an if / else statement is enclosed within _____.",
     choice1: ["1. quotes", false],
     choice2: ["2. curly brackets", false],
-    choice3: ["3. parentheses", true],// Correct Answer
-    choice4: ["4. square brackets", false]
+    choice3: ["3. parentheses", true], // Correct Answer
+    choice4: ["4. square brackets", false],
   },
   {
     // Quiz Question #3
@@ -54,7 +56,7 @@ var quizArray = [
     choice1: ["1. numbers and strings", false],
     choice2: ["2. other arrays", false],
     choice3: ["3. booleans", false],
-    choice4: ["4. all of the above", true]// Correct Answer
+    choice4: ["4. all of the above", true], // Correct Answer
   },
   {
     // Quiz Question #4
@@ -62,7 +64,7 @@ var quizArray = [
       "String values must be enclosed within _____ when being assigned to variables.",
     choice1: ["1. commas", false],
     choice2: ["2. curly brackets", false],
-    choice3: ["3. quotes", true],// Correct Answer
+    choice3: ["3. quotes", true], // Correct Answer
     choice4: ["4. parentheses", false],
   },
   {
@@ -72,7 +74,7 @@ var quizArray = [
     choice1: ["1. JavaScript", false],
     choice2: ["2. terminal / bash", false],
     choice3: ["3. for loops", false],
-    choice4: ["4. console.log", true]// Correct Answer
+    choice4: ["4. console.log", true], // Correct Answer
   },
 ];
 
@@ -89,65 +91,67 @@ function startTimer() {
   }, 1000);
 }
 
-function setupScreen(page){
-  for(var i=0; i<pageArray.length; i++){
-    if(page === pageArray[i]){
+function setupScreen(page) {
+  for (var i = 0; i < pageArray.length; i++) {
+    if (page === pageArray[i]) {
       page.setAttribute("style", "display: block");
-    } else{
+    } else {
       pageArray[i].setAttribute("style", "display: none");
     }
   }
 }
 
-function setupQuiz(number){
+function setupQuiz(number) {
   questionNumber.textContent = number;
-  quizQuestion.textContent = quizArray[number-1].question;
-  quizButtonChoice1.textContent = quizArray[number-1].choice1[0];
-  quizButtonChoice2.textContent = quizArray[number-1].choice2[0];
-  quizButtonChoice3.textContent = quizArray[number-1].choice3[0];
-  quizButtonChoice4.textContent = quizArray[number-1].choice4[0];
+  quizQuestion.textContent = quizArray[number - 1].question;
+  quizButtonChoicesArray[0].textContent = quizArray[number - 1].choice1[0];
+  quizButtonChoicesArray[1].textContent = quizArray[number - 1].choice2[0];
+  quizButtonChoicesArray[2].textContent = quizArray[number - 1].choice3[0];
+  quizButtonChoicesArray[3].textContent = quizArray[number - 1].choice4[0];
 }
 
-function correctAnswer(id){
+function correctAnswer(id) {
   var correctAnswer = "";
-  var number = (parseInt(questionNumber.textContent))-1;
-  if(quizArray[number].choice1[1] === true){
-    correctAnswer = "quizButtonChoice1"
+  var number = parseInt(questionNumber.textContent) - 1;
+  if (quizArray[number].choice1[1] === true) {
+    correctAnswer = "quizButtonChoice1";
+  } else if (quizArray[number].choice2[1] === true) {
+    correctAnswer = "quizButtonChoice2";
+  } else if (quizArray[number].choice3[1] === true) {
+    correctAnswer = "quizButtonChoice3";
+  } else if (quizArray[number].choice4[1] === true) {
+    correctAnswer = "quizButtonChoice4";
   }
-  else if(quizArray[number].choice2[1] === true){
-    correctAnswer = "quizButtonChoice2"
-  }
-  else if(quizArray[number].choice3[1] === true){
-    correctAnswer = "quizButtonChoice3"
-  }
-  else if(quizArray[number].choice4[1] === true){
-    correctAnswer = "quizButtonChoice4"
-  }
-  
-  if(id === correctAnswer){
-    score+=10;
+
+  if (id === correctAnswer) {
+    score += 10;
     commentary(true);
-  }
-  else{
-    if(quizTimerCounter < 15){
+  } else {
+    if (quizTimerCounter < 15) {
       endQuiz();
-    } else{
-      quizTimerCounter-=15;
+    } else {
+      quizTimerCounter -= 15;
       commentary(false);
     }
   }
+
+  if (questionNumber.textContent !== "5") {
+    questionNumber.textContent++;
+    setupQuiz(questionNumber.textContent);
+  } else {
+    endQuiz();
+  }
 }
 
-function commentary(boolean){
-  if(boolean === true){
+function commentary(boolean) {
+  if (boolean === true) {
     rightOrWrong.textContent = "Correct Answer!";
-  }
-  else{
+  } else {
     rightOrWrong.textContent = "Wrong Answer!";
   }
 }
 
-function endQuiz(){
+function endQuiz() {
   clearInterval(interval);
   quizTimer.textContent = "0";
   finalScoreDisplay.textContent = score;
@@ -160,63 +164,19 @@ startQuizButton.addEventListener("click", function () {
   startTimer();
 });
 
-quizButtonChoice1.addEventListener("click", function(){
-  correctAnswer(this.id);
-
-  if(questionNumber.textContent !== "5"){
-    questionNumber.textContent++;
-    setupQuiz(questionNumber.textContent);
-  }
-  else{
-    endQuiz();
-  }
-});
-
-quizButtonChoice2.addEventListener("click", function(){
-  correctAnswer(this.id);
-
-  if(questionNumber.textContent !== "5"){
-    questionNumber.textContent++;
-    setupQuiz(questionNumber.textContent);
-  }
-  else{
-    endQuiz();
-  }
-});
-
-quizButtonChoice3.addEventListener("click", function(){
-  correctAnswer(this.id);
-
-  if(questionNumber.textContent !== "5"){
-    questionNumber.textContent++;
-    setupQuiz(questionNumber.textContent);
-  }
-
-  else{
-    endQuiz();
-  }
-});
-
-quizButtonChoice4.addEventListener("click", function(){
-  correctAnswer(this.id);
-
-  if(questionNumber.textContent !== "5"){
-    questionNumber.textContent++;
-    setupQuiz(questionNumber.textContent);
-  }
-  else{
-    endQuiz();
-  }
-});
+for (var i = 0; i < quizButtonChoicesArray.length; i++) {
+  quizButtonChoicesArray[i].addEventListener("click", function () {
+    event.stopPropagation();
+    correctAnswer(this.id);
+  });
+}
 
 viewHighScoresButton.addEventListener("click", function () {
   setupScreen(highScorePage);
 });
 
-goHomeButton.addEventListener("click", function(){
+goHomeButton.addEventListener("click", function () {
   setupScreen(homePage);
 });
 
-clearHighScoresButton.addEventListener("click", function(){
-  
-});
+clearHighScoresButton.addEventListener("click", function () {});
