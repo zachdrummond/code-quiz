@@ -174,6 +174,7 @@ for (var i = 0; i < quizButtonChoicesArray.length; i++) {
 }
 
 viewHighScoresButton.addEventListener("click", function () {
+  highScoreDisplay.textContent = localStorage.getItem("User Initials") + ": " + localStorage.getItem("Score");
   setupScreen(highScorePage);
 });
 
@@ -187,5 +188,7 @@ clearHighScoresButton.addEventListener("click", function () {
 
 submitInitialsButton.addEventListener("click", function(){
   localStorage.setItem("User Initials", userInitials.value);
+  localStorage.setItem("Score", score);
+  highScoreDisplay.textContent = localStorage.getItem("User Initials") + ": " + localStorage.getItem("Score");
   setupScreen(highScorePage);
 });
