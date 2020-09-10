@@ -22,6 +22,8 @@ var rightOrWrong = document.getElementById("rightOrWrong");
 // Quiz Complete Page Variables
 var quizCompletePage = document.getElementById("quizCompletePage");
 var finalScoreDisplay = document.getElementById("finalScoreDisplay");
+var userInitials = document.getElementById("userInitials");
+var submitInitialsButton = document.getElementById("submitInitialsButton");
 
 // High Scores Page Variables
 var highScorePage = document.getElementById("highScorePage");
@@ -179,4 +181,11 @@ goHomeButton.addEventListener("click", function () {
   setupScreen(homePage);
 });
 
-clearHighScoresButton.addEventListener("click", function () {});
+clearHighScoresButton.addEventListener("click", function () {
+
+});
+
+submitInitialsButton.addEventListener("click", function(){
+  localStorage.setItem("User Initials", userInitials.value);
+  setupScreen(highScorePage);
+});
