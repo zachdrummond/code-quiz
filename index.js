@@ -3,8 +3,9 @@ var nav = document.querySelector("nav");
 var homePage = document.getElementById("homePage");
 var startQuizButton = document.getElementById("startQuizButton");
 var viewHighScoresButton = document.getElementById("viewHighScoresButton");
-var quizTimer = document.getElementById("timer");
+var quizTimer = document.getElementById("quizTimer");
 var quizTimerCounter = 0;
+var interval;
 
 // Quiz Page Variables
 var quizPage = document.getElementById("quizPage");
@@ -78,9 +79,9 @@ var quizArray = [
 function startTimer() {
   quizTimerCounter = 75;
   quizTimer.textContent = quizTimerCounter;
-  var timer = setInterval(function () {
+  interval = setInterval(function () {
     if (quizTimerCounter === 0) {
-      clearInterval(timer);
+      endQuiz();
     } else {
       quizTimerCounter--;
       quizTimer.textContent = quizTimerCounter;
@@ -99,7 +100,6 @@ function setupScreen(page){
 }
 
 function setupQuiz(number){
-  rightOrWrong.textContent = "";
   questionNumber.textContent = number;
   quizQuestion.textContent = quizArray[number-1].question;
   quizButtonChoice1.textContent = quizArray[number-1].choice1[0];
@@ -126,26 +126,33 @@ function correctAnswer(id){
   
   if(id === correctAnswer){
     score+=10;
+    commentary(true);
   }
   else{
-    quizTimerCounter-=15;
+    if(quizTimerCounter < 15){
+      endQuiz();
+    } else{
+      quizTimerCounter-=15;
+      commentary(false);
+    }
   }
 }
 
-function endGame(){
+function commentary(boolean){
+  if(boolean === true){
+    rightOrWrong.textContent = "Correct Answer!";
+  }
+  else{
+    rightOrWrong.textContent = "Wrong Answer!";
+  }
+}
+
+function endQuiz(){
+  clearInterval(interval);
+  quizTimer.textContent = "0";
   finalScoreDisplay.textContent = score;
   setupScreen(quizCompletePage);
 }
-
-// function commentary(boolean){
-//   if(boolean === true){
-//     rightOrWrong.textContent = "Correct!";
-//   }
-//   else{
-//     rightOrWrong.textContent = "Wrong!";
-//   }
-//   rightOrWrong.setAttribute("style", "display: block");
-// }
 
 startQuizButton.addEventListener("click", function () {
   setupQuiz(1);
@@ -161,7 +168,7 @@ quizButtonChoice1.addEventListener("click", function(){
     setupQuiz(questionNumber.textContent);
   }
   else{
-    endGame();
+    endQuiz();
   }
 });
 
@@ -173,7 +180,7 @@ quizButtonChoice2.addEventListener("click", function(){
     setupQuiz(questionNumber.textContent);
   }
   else{
-    endGame();
+    endQuiz();
   }
 });
 
@@ -186,7 +193,7 @@ quizButtonChoice3.addEventListener("click", function(){
   }
 
   else{
-    endGame();
+    endQuiz();
   }
 });
 
@@ -198,7 +205,7 @@ quizButtonChoice4.addEventListener("click", function(){
     setupQuiz(questionNumber.textContent);
   }
   else{
-    endGame();
+    endQuiz();
   }
 });
 
