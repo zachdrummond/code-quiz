@@ -82,6 +82,7 @@ var quizArray = [
   },
 ];
 
+// Starts the Quiz Timer
 function startTimer() {
   quizTimerCounter = 75;
   quizTimer.textContent = quizTimerCounter;
@@ -95,6 +96,7 @@ function startTimer() {
   }, 1000);
 }
 
+// Displays the correct page and hides the other pages
 function setupScreen(page) {
   for (var i = 0; i < pageArray.length; i++) {
     if (page === pageArray[i]) {
@@ -105,6 +107,7 @@ function setupScreen(page) {
   }
 }
 
+// Displays the quiz page and fills it with the questions and choices
 function setupQuiz(number) {
   questionNumber.textContent = number;
   quizQuestion.textContent = quizArray[number - 1].question;
@@ -114,6 +117,7 @@ function setupQuiz(number) {
   quizButtonChoicesArray[3].textContent = quizArray[number - 1].choice4[0];
 }
 
+// Finds the right answer
 function correctAnswer(id) {
   var correctAnswer = "";
   var number = parseInt(questionNumber.textContent) - 1;
@@ -127,10 +131,11 @@ function correctAnswer(id) {
     correctAnswer = "quizButtonChoice4";
   }
 
+  // If the user guesses the correct answer, add to score
   if (id === correctAnswer) {
     score += 10;
     commentary(true);
-  } else {
+  } else { // If the user guesses the incorrect answer, decrease time unless it is less than 15
     if (quizTimerCounter < 15) {
       endQuiz();
     } else {
@@ -139,6 +144,7 @@ function correctAnswer(id) {
     }
   }
 
+  // If the user hasn't reached question 5, setup the next quiz page. Otherwise, end the quiz.
   if (questionNumber.textContent !== "5") {
     questionNumber.textContent++;
     setupQuiz(questionNumber.textContent);
@@ -147,6 +153,7 @@ function correctAnswer(id) {
   }
 }
 
+// Adds comments to the user's responses
 function commentary(boolean) {
   if (boolean === true) {
     rightOrWrong.textContent = "Correct Answer!";
@@ -155,6 +162,7 @@ function commentary(boolean) {
   }
 }
 
+// Ends the quiz, stops the timer, and displays the Quiz Complete Page
 function endQuiz() {
   clearInterval(interval);
   quizTimer.textContent = "0";
@@ -162,6 +170,7 @@ function endQuiz() {
   setupScreen(quizCompletePage);
 }
 
+// Gets the scores from the local storage and displays them on the High Score Page
 function getHighScores() {
   var storedUserInitials = JSON.parse(localStorage.getItem("User Initials"));
   var storedHighScores = JSON.parse(localStorage.getItem("Score"));
@@ -179,6 +188,7 @@ function getHighScores() {
   }
 }
 
+// Stores the user's initials into local storage and displays the High Score Page
 function submitInitials() {
   if (userInitials.value === "") {
     alert("You must enter your initials.");
@@ -194,6 +204,7 @@ function submitInitials() {
   }
 }
 
+//The Button that starts the Quiz
 startQuizButton.addEventListener("click", function () {
   score = 0;
   setupQuiz(1);
@@ -201,6 +212,7 @@ startQuizButton.addEventListener("click", function () {
   startTimer();
 });
 
+// Adds a button to each Quiz Choice
 for (var i = 0; i < quizButtonChoicesArray.length; i++) {
   quizButtonChoicesArray[i].addEventListener("click", function () {
     event.stopPropagation();
@@ -208,19 +220,23 @@ for (var i = 0; i < quizButtonChoicesArray.length; i++) {
   });
 }
 
+// View High Scores Button - Displays High Score Page
 viewHighScoresButton.addEventListener("click", function () {
   setupScreen(highScorePage);
 });
 
+// Go Home Button - Displays the Home Page
 goHomeButton.addEventListener("click", function () {
   setupScreen(homePage);
 });
 
+// Clear High Scores Button - Clears the scores from local storage
 clearHighScoresButton.addEventListener("click", function () {
   localStorage.clear();
   highScoreDisplay.textContent = "";
 });
 
+// Submit Initials Button - Allows the user to submit his/her initials
 submitInitialsButton.addEventListener("click", function () {
   event.preventDefault();
   submitInitials();

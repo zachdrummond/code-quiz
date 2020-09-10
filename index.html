@@ -49,8 +49,9 @@
 
       <!-- Quiz Page Section -->
       <section id="quizPage">
-        <h1 class="mt-4 ">Question #<span id="questionNumber">1</span></h1>
+        <h1 class="mt-4">Question #<span id="questionNumber">1</span></h1>
         <h2 id="quizQuestion">Question :</h2>
+        <!-- Choice #1 -->
         <div class="row">
           <div class="col mb-2">
             <button
@@ -62,6 +63,7 @@
             </button>
           </div>
         </div>
+       <!-- Choice #2 -->
         <div class="row">
           <div class="col mb-2">
             <button
@@ -73,6 +75,7 @@
             </button>
           </div>
         </div>
+        <!-- Choice #3 -->
         <div class="row">
           <div class="col mb-2">
             <button
@@ -84,6 +87,7 @@
             </button>
           </div>
         </div>
+        <!-- Choice #4 -->
         <div class="row">
           <div class="col mb-2">
             <button
@@ -113,15 +117,17 @@
               value="Enter Your Intials: "
             />
           </div>
+          <!-- User Initials Input -->
           <div class="form-group mx-sm-3 mb-2">
             <label for="userInitials" class="sr-only">userInitials</label>
-            <input
-              type="text"
-              class="form-control"
-              id="userInitials"
-            />
+            <input type="text" class="form-control" id="userInitials" />
           </div>
-          <button id="submitInitialsButton" type="submit" class="btn btn-primary mb-2">
+          <!-- User Initials Submit Button -->
+          <button
+            id="submitInitialsButton"
+            type="submit"
+            class="btn btn-primary mb-2"
+          >
             Submit
           </button>
         </form>
@@ -131,14 +137,19 @@
       <section id="highScorePage">
         <h1 class="mt-5 mb-4">High Scores</h1>
         <p id="highScoreDisplay" class="alert alert-primary" role="alert"></p>
+        <!-- Go Home Button -->
         <button id="goHomeButton" type="button" class="btn btn-info btn-sm">
           Go Home
         </button>
-        <button id="clearHighScoresButton" type="button" class="btn btn-info btn-sm">
+        <!-- Clear High Scores Button -->
+        <button
+          id="clearHighScoresButton"
+          type="button"
+          class="btn btn-info btn-sm"
+        >
           Clear High Scores
         </button>
       </section>
-
     </main>
 
     <script src="index.js"></script>

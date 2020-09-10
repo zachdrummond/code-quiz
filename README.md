@@ -1,66 +1,76 @@
 # code-quiz
 
-# Progress
-* Created files
-* Links to Bootstrap, CSS, JavaScript
-* HTML Front Page - Header, Paragraph, Button, High Scores, Timer
-* Assigned id Names and targeted them using JavaScript
-* Start Quiz Button - Front Page disappears
-* Added functionality to the timer
-* Added viewHighScores button
-* Added HTML sections
-* Added array of objects of questions and answers
-* Added buttons to quiz choices
+## Table of Contents
+* [Description](#Description)
+* [Design Elements](#Design-Elements)
+* [App Preview](#App-Preview)
+* [Links](#Links)
+* [Credits](#Credits)
 
-# Pseudocode
-1. Create HTML Layout using Bootstrap
-2. Add Link to CSS, JavaScript, and Bootstrap
-3. Assign id names to buttons
-4. Use JavaScript to target the buttons
-5. Add EventListeners
-6. Change the display for each Question
-7. Add a timer
-8. Save the answers and high scores into local storage
+## Description
+This is an app that creates a timed, multiple-choice quiz about coding. Students and Experts alike can test their knowledge on JavaScript fundamentals and share their high score with their peers.
 
-# 04 Web APIs: Code Quiz
+This app was designed using dynamically updated HTML and CSS powered by JavaScript and Boostrap.
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+## Design Elements
+### *JavaScript*
+* Clean User Interface
+* Dynamically Updated HTML and CSS
+* Logical Code Structure
+* Sequential Order
+* Web Application Programming Interface
+* Document Object Model Manipulation
+* Local Storage
+* Objects
+* Arrays
+* Methods
+* Global and Local Variables
+* Functions
+* Event Listeners
+* Interval
+* if...else Statements
+* for Loops
+* Comments
 
-## User Story
+### *Bootstrap*
+* Grid System
+* Navigation Bar with Button
+* Form
+* Spacing
+* Colors
 
-```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
+### *HTML*
+* Logical Structure
+* Sequential Order
+* Bootstrap CSS Link
+* CSS File Link
+* JavaScript File Link
+* Concise Descriptive Title
+* Semantic Elements
+* ids, Classes, and Elements
+* Buttons
+* Accessible Attributes
+* Comments
 
-## Acceptance Criteria
+## App Preview
+### *Home Screen*
+![Screenshot](codeQuiz1.png)
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+### *Question #1*
+![Screenshot](codeQuiz2.png)
 
-The following animation demonstrates the application functionality:
+### *Question #2*
+![Screenshot](codeQuiz3.png)
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+### *Quiz Complete Screen*
+![Screenshot](codeQuiz4.png)
 
-### Review
+### *High Score Screen*
+![Screenshot](codeQuiz5.png)
 
-You are required to submit the following for review:
+## Links
+* Website: https://zachdrummond.github.io/code-quiz/?#
+* GitHub Repository: https://github.com/zachdrummond/code-quiz
 
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+## Credits
+* Bootstrap: https://getbootstrap.com/
