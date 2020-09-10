@@ -4,6 +4,7 @@ var homePage = document.getElementById("homePage");
 var startQuizButton = document.getElementById("startQuizButton");
 var viewHighScoresButton = document.getElementById("viewHighScoresButton");
 var quizTimer = document.getElementById("timer");
+var quizTimerCounter = 0;
 
 // Quiz Page Variables
 var quizPage = document.getElementById("quizPage");
@@ -17,10 +18,12 @@ var rightOrWrong = document.getElementById("rightOrWrong");
 
 // Quiz Complete Page Variables
 var quizCompletePage = document.getElementById("quizCompletePage");
+var finalScoreDisplay = document.getElementById("finalScoreDisplay");
 
 // High Scores Page Variables
 var highScorePage = document.getElementById("highScorePage");
-var totalScore = document.getElementById("totalScore");
+var highScoreDisplay = document.getElementById("highScoreDisplay");
+var score = 0;
 var goHomeButton = document.getElementById("goHomeButton");
 var clearHighScoresButton = document.getElementById("clearHighScoresButton");
 
@@ -73,14 +76,14 @@ var quizArray = [
 ];
 
 function startTimer() {
-  var counter = 75;
-  quizTimer.textContent = counter;
+  quizTimerCounter = 75;
+  quizTimer.textContent = quizTimerCounter;
   var timer = setInterval(function () {
-    if (counter === 0) {
+    if (quizTimerCounter === 0) {
       clearInterval(timer);
     } else {
-      counter--;
-      quizTimer.textContent = counter;
+      quizTimerCounter--;
+      quizTimer.textContent = quizTimerCounter;
     }
   }, 1000);
 }
@@ -105,6 +108,45 @@ function setupQuiz(number){
   quizButtonChoice4.textContent = quizArray[number-1].choice4[0];
 }
 
+function correctAnswer(id){
+  var correctAnswer = "";
+  var number = (parseInt(questionNumber.textContent))-1;
+  if(quizArray[number].choice1[1] === true){
+    correctAnswer = "quizButtonChoice1"
+  }
+  else if(quizArray[number].choice2[1] === true){
+    correctAnswer = "quizButtonChoice2"
+  }
+  else if(quizArray[number].choice3[1] === true){
+    correctAnswer = "quizButtonChoice3"
+  }
+  else if(quizArray[number].choice4[1] === true){
+    correctAnswer = "quizButtonChoice4"
+  }
+  
+  if(id === correctAnswer){
+    score+=10;
+  }
+  else{
+    quizTimerCounter-=15;
+  }
+}
+
+function endGame(){
+  finalScoreDisplay.textContent = score;
+  setupScreen(quizCompletePage);
+}
+
+// function commentary(boolean){
+//   if(boolean === true){
+//     rightOrWrong.textContent = "Correct!";
+//   }
+//   else{
+//     rightOrWrong.textContent = "Wrong!";
+//   }
+//   rightOrWrong.setAttribute("style", "display: block");
+// }
+
 startQuizButton.addEventListener("click", function () {
   setupQuiz(1);
   setupScreen(quizPage);
@@ -112,19 +154,52 @@ startQuizButton.addEventListener("click", function () {
 });
 
 quizButtonChoice1.addEventListener("click", function(){
-  
+  correctAnswer(this.id);
+
+  if(questionNumber.textContent !== "5"){
+    questionNumber.textContent++;
+    setupQuiz(questionNumber.textContent);
+  }
+  else{
+    endGame();
+  }
 });
 
 quizButtonChoice2.addEventListener("click", function(){
-  
+  correctAnswer(this.id);
+
+  if(questionNumber.textContent !== "5"){
+    questionNumber.textContent++;
+    setupQuiz(questionNumber.textContent);
+  }
+  else{
+    endGame();
+  }
 });
 
 quizButtonChoice3.addEventListener("click", function(){
-  
+  correctAnswer(this.id);
+
+  if(questionNumber.textContent !== "5"){
+    questionNumber.textContent++;
+    setupQuiz(questionNumber.textContent);
+  }
+
+  else{
+    endGame();
+  }
 });
 
 quizButtonChoice4.addEventListener("click", function(){
-  
+  correctAnswer(this.id);
+
+  if(questionNumber.textContent !== "5"){
+    questionNumber.textContent++;
+    setupQuiz(questionNumber.textContent);
+  }
+  else{
+    endGame();
+  }
 });
 
 viewHighScoresButton.addEventListener("click", function () {

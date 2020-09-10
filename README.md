@@ -10,6 +10,7 @@
 * Added viewHighScores button
 * Added HTML sections
 * Added array of objects of questions and answers
+* Added buttons to quiz choices
 
 # Pseudocode
 1. Create HTML Layout using Bootstrap
