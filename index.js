@@ -135,7 +135,8 @@ function correctAnswer(id) {
   if (id === correctAnswer) {
     score += 10;
     commentary(true);
-  } else { // If the user guesses the incorrect answer, decrease time unless it is less than 15
+  } else {
+    // If the user guesses the incorrect answer, decrease time unless it is less than 15
     if (quizTimerCounter < 15) {
       endQuiz();
     } else {
@@ -175,7 +176,7 @@ function getHighScores() {
   var storedUserInitials = JSON.parse(localStorage.getItem("User Initials"));
   var storedHighScores = JSON.parse(localStorage.getItem("Score"));
 
-  if ((storedUserInitials !== null) & (storedHighScores !== null)) {
+  if ((storedUserInitials !== null) && (storedHighScores !== null)) {
     userInitialsArray = storedUserInitials;
     highScoreArray = storedHighScores;
 

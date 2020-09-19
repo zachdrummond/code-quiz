@@ -1,4 +1,6 @@
 /* Hides Quiz Page, High Score Page, and Quiz Complete Page */
-#quizPage, #highScorePage, #quizCompletePage {
-    display: none;
+#quizPage,
+#highScorePage,
+#quizCompletePage {
+  display: none;
 }
