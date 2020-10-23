@@ -17,44 +17,11 @@ This app was designed using dynamically updated HTML and CSS powered by JavaScri
 * GitHub Repository: https://github.com/zachdrummond/code-quiz
 
 ## Design Elements
-### *JavaScript*
-* Clean User Interface
-* Dynamically Updated HTML and CSS
-* Logical Code Structure
-* Sequential Order
-* Web Application Programming Interface
-* Document Object Model Manipulation
+* JavaScript
 * Local Storage
-* Objects
-* Arrays
-* Methods
-* Global and Local Variables
-* Functions
-* Event Listeners
-* Interval
-* if...else Statements
-* for Loops
-* Comments
-
-### *Bootstrap*
-* Grid System
-* Navigation Bar with Button
-* Form
-* Spacing
-* Colors
-
-### *HTML*
-* Logical Structure
-* Sequential Order
-* Bootstrap CSS Link
-* CSS File Link
-* JavaScript File Link
-* Concise Descriptive Title
-* Semantic Elements
-* ids, Classes, and Elements
-* Buttons
-* Accessible Attributes
-* Comments
+* HTML
+* CSS
+* Bootstrap
 
 ## App Preview
 ### *Home Screen*
